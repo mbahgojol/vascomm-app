@@ -24,3 +24,4 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 rootProject.name = "vascomm-app"
 include(":app")
+//include(":shared")
