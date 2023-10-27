@@ -7,11 +7,11 @@ androidxlifecycle = "2.6.2"
 androidxactivity = "1.8.0"
 chucker = "4.0.0"
 circuit = "0.15.0"
-compose-multiplatform = "1.5.10-rc02"
+compose-multiplatform = "1.5.3"
 coroutines = "1.7.3"
-kotlin = "1.9.20-RC2"
+kotlin = "1.9.10"
 kotlininject = "0.6.3"
-ksp = "1.9.20-RC2-1.0.13"
+ksp = "1.9.10-1.0.13"
 lyricist = "1.6.0"
 multiplatformsettings = "1.1.0"
 okhttp = "4.12.0"
@@ -35,7 +35,7 @@ android-test = { id = "com.android.test", version.ref = "agp" }
 buildConfig = "com.github.gmazzo.buildconfig:4.1.2"
 cacheFixPlugin = { id = "org.gradle.android.cache-fix", version = "3.0" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.10" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

@@ -1,57 +1,109 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("mbahgojol.application")
-    id("mbahgojol.kotlin.android")
-    id("mbahgojol.library.compose")
+  id("mbahgojol.application")
+  id("mbahgojol.kotlin.android")
+  id("mbahgojol.library.compose")
 }
 
+val useReleaseKeystore = rootProject.file("release/app-release.jks").exists()
+
 android {
-    namespace = "com.mbahgojol.movies"
+  namespace = "com.mbahgojol.movies"
 
-    defaultConfig {
-        applicationId = "com.mbahgojol.movies"
+  defaultConfig {
+    applicationId = "com.mbahgojol.movies"
+  }
+
+  buildFeatures {
+    buildConfig = true
+  }
+
+  signingConfigs {
+    getByName("debug") {
+      storeFile = rootProject.file("release/app-debug.jks")
+      storePassword = "android"
+      keyAlias = "androiddebugkey"
+      keyPassword = "android"
     }
 
-    buildFeatures {
-        buildConfig = true
+    create("release") {
+      if (useReleaseKeystore) {
+        storeFile = rootProject.file("release/app-release.jks")
+        storePassword = properties["APP_RELEASE_KEYSTORE_PWD"]?.toString() ?: ""
+        keyAlias = "app"
+        keyPassword = properties["APP_RELEASE_KEY_PWD"]?.toString() ?: ""
+      }
+    }
+  }
+
+  lint {
+    baseline = file("lint-baseline.xml")
+    checkReleaseBuilds = false
+    ignoreTestSources = true
+    abortOnError = true
+  }
+
+  buildTypes {
+    debug {
+      signingConfig = signingConfigs["debug"]
+      versionNameSuffix = "-dev"
+      applicationIdSuffix = ".debug"
     }
 
-    lint {
-        baseline = file("lint-baseline.xml")
-        checkReleaseBuilds = false
-        ignoreTestSources = true
-        abortOnError = true
+    release {
+      signingConfig = signingConfigs[if (useReleaseKeystore) "release" else "debug"]
+      isShrinkResources = true
+      isMinifyEnabled = true
+      proguardFiles("proguard-rules.pro")
     }
 
-    packaging {
-        resources.excludes += setOf(
-            // Exclude AndroidX version files
-            "META-INF/*.version",
-            // Exclude consumer proguard files
-            "META-INF/proguard/*",
-            // Exclude the Firebase/Fabric/other random properties files
-            "/*.properties",
-            "fabric/*.properties",
-            "META-INF/*.properties",
-            // License files
-            "LICENSE*",
-            // Exclude Kotlin unused files
-            "META-INF/**/previous-compilation-data.bin",
-        )
+    create("benchmark") {
+      initWith(buildTypes["release"])
+      signingConfig = signingConfigs["debug"]
+      matchingFallbacks += "release"
+      proguardFiles("benchmark-rules.pro")
     }
+  }
+
+  flavorDimensions += "mode"
+  productFlavors {
+    create("qa") {
+      dimension = "mode"
+      // This is a build with Chucker enabled
+      proguardFiles("proguard-rules-chucker.pro")
+      versionNameSuffix = "-qa"
+    }
+
+    create("standard") {
+      dimension = "mode"
+      // Standard build is always ahead of the QA builds as it goes straight to
+      // the alpha channel. This is the 'release' flavour
+      versionCode = (android.defaultConfig.versionCode ?: 0) + 1
+    }
+  }
 
 }
 
 dependencies {
-    implementation(compose.foundation)
-    implementation(compose.material)
-    implementation(compose.material3)
+  qaImplementation(projects.shared)
+  standardImplementation(projects.shared)
 
-    implementation(libs.kotlin.coroutines.android)
-    implementation(libs.androidx.activity.activity)
-    implementation(libs.androidx.activity.compose)
+  implementation(compose.foundation)
+  implementation(compose.material)
+  implementation(compose.material3)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.junit)
+  implementation(libs.kotlin.coroutines.android)
+  implementation(libs.androidx.activity.activity)
+  implementation(libs.androidx.activity.compose)
+
+  testImplementation(libs.junit)
+  androidTestImplementation(libs.androidx.test.junit)
 }
+
+
+fun DependencyHandler.qaImplementation(dependencyNotation: Any) =
+  add("qaImplementation", dependencyNotation)
+
+fun DependencyHandler.standardImplementation(dependencyNotation: Any) =
+  add("standardImplementation", dependencyNotation)
