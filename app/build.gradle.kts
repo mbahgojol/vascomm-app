@@ -4,7 +4,6 @@ plugins {
     id("mbahgojol.application")
     id("mbahgojol.kotlin.android")
     id("mbahgojol.library.compose")
-    alias(libs.plugins.ksp)
 }
 
 android {
@@ -24,6 +23,24 @@ android {
         ignoreTestSources = true
         abortOnError = true
     }
+
+    packaging {
+        resources.excludes += setOf(
+            // Exclude AndroidX version files
+            "META-INF/*.version",
+            // Exclude consumer proguard files
+            "META-INF/proguard/*",
+            // Exclude the Firebase/Fabric/other random properties files
+            "/*.properties",
+            "fabric/*.properties",
+            "META-INF/*.properties",
+            // License files
+            "LICENSE*",
+            // Exclude Kotlin unused files
+            "META-INF/**/previous-compilation-data.bin",
+        )
+    }
+
 }
 
 dependencies {

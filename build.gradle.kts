@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.android.test) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
-//    alias(libs.plugins.multiplatform) apply false
     alias(libs.plugins.spotless) apply false
     alias(libs.plugins.composeMultiplatform) apply false
     alias(libs.plugins.ksp) apply false

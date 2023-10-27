@@ -1,13 +1,21 @@
 pluginManagement {
     includeBuild("gradle/build-logic")
+
     repositories {
+        mavenCentral()
         google()
         gradlePluginPortal()
-        mavenCentral()
+
+        // Prerelease versions of Compose Multiplatform
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+
+        // Used for snapshots if needed
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
 }
+
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenCentral()
         google()
@@ -15,7 +23,15 @@ dependencyResolutionManagement {
 
         // Prerelease versions of Compose Multiplatform
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+
+        // Used for snapshots if needed
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
 }
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
@@ -24,4 +40,4 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 rootProject.name = "vascomm-app"
 include(":app")
-//include(":shared")
+include(":shared")
