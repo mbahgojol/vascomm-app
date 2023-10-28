@@ -1,6 +1,6 @@
-package com.mbahgojol.auth.di
+package di
 
-import com.mbahgojol.auth.Greeting
+import Greeting
 import org.koin.dsl.module
 
 val authModule = module {

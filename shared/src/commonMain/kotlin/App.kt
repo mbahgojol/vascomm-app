@@ -1,4 +1,3 @@
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import com.mbahgojol.auth.LoginScreen
 import com.mbahgojol.auth.di.authModule
@@ -9,10 +8,8 @@ fun App() {
   KoinApplication(application = {
     modules(authModule)
   }) {
-    MaterialTheme {
+    AppTheme {
       LoginScreen({})
     }
   }
 }
-
-expect fun getPlatformName(): String
