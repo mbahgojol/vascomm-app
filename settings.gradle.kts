@@ -1,37 +1,37 @@
 pluginManagement {
-    includeBuild("gradle/build-logic")
+  includeBuild("gradle/build-logic")
 
-    repositories {
-        mavenCentral()
-        google()
-        gradlePluginPortal()
+  repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
 
-        // Prerelease versions of Compose Multiplatform
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    // Prerelease versions of Compose Multiplatform
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 
-        // Used for snapshots if needed
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-    }
+    // Used for snapshots if needed
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+  }
 }
 
 dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        google()
-        mavenLocal()
+  repositories {
+    mavenCentral()
+    google()
+    mavenLocal()
 
-        // Prerelease versions of Compose Multiplatform
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    // Prerelease versions of Compose Multiplatform
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 
-        // Used for snapshots if needed
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-    }
+    // Used for snapshots if needed
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+  }
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
+  id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
 }
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
@@ -41,3 +41,11 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 rootProject.name = "vascomm-app"
 include(":app")
 include(":shared")
+include(":feature:auth")
+include(":feature:dashboard")
+include(":feature:account")
+include(":domain")
+include(":data:authentication")
+include(":core:designsystem")
+include(":core:base")
+include(":common:resources")

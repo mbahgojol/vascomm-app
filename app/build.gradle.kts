@@ -9,10 +9,10 @@ plugins {
 val useReleaseKeystore = rootProject.file("release/app-release.jks").exists()
 
 android {
-  namespace = "com.mbahgojol.movies"
+  namespace = "com.mbahgojol.vascomm"
 
   defaultConfig {
-    applicationId = "com.mbahgojol.movies"
+    applicationId = "com.mbahgojol.vascomm"
   }
 
   buildFeatures {
@@ -83,11 +83,23 @@ android {
     }
   }
 
+  applicationVariants.all {
+    val variantName = name
+    sourceSets {
+      getByName("main") {
+        java.srcDir(File("build/generated/ksp/$variantName/kotlin"))
+      }
+    }
+  }
 }
 
 dependencies {
   qaImplementation(projects.shared)
   standardImplementation(projects.shared)
+
+  implementation(libs.koin.android)
+  implementation(libs.koin.androidx.compose)
+  implementation(libs.koin.annotations)
 
   implementation(compose.foundation)
   implementation(compose.material)

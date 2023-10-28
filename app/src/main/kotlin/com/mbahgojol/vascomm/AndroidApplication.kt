@@ -1,4 +1,4 @@
-package com.mbahgojol.movies
+package com.mbahgojol.vascomm
 
 import android.app.Application
 
