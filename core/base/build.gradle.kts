@@ -1,26 +1,16 @@
-import com.mbahgojol.convention.androidMain
-import com.mbahgojol.convention.commonMain
-
 plugins {
-  id("mbahgojol.kotlin.multiplatform")
+  id("mbahgojol.library")
+  id("mbahgojol.kotlin.android")
   id("mbahgojol.library.compose")
 }
 
-kotlin {
-  androidMain {
-    dependencies {
-      implementation(libs.koin.android)
-    }
-  }
+android {
+  namespace = "com.mbahgojol.base"
+}
 
-  commonMain {
-    dependencies {
-      implementation(libs.koin.core)
-
-      api(libs.mvvm.core)
-      api(libs.mvvm.compose)
-      api(libs.mvvm.flow)
-      api(libs.mvvm.flow.compose)
-    }
-  }
+dependencies {
+  api(libs.androidx.navigation.compose)
+  api(libs.androidx.navigation.runtime)
+  api(libs.androidx.core)
+  implementation(projects.core.designsystem)
 }

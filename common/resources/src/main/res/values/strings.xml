@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="welcome">Hai, Selamat Datang</string>
+  <string name="please_login">Silahkan login untuk melanjutkan</string>
+  <string name="please_register">Silahkan register untuk melanjutkan</string>
+  <string name="email">Email</string>
+  <string name="password">Password</string>
+  <string name="input_email">Masukkan email anda</string>
+  <string name="input_password">Masukkan password anda</string>
+  <string name="forgot_password">Lupa Password anda ?</string>
+  <string name="ask_dont_have_account">Belum punya akun ?</string>
+  <string name="ask_have_account">Sudah punya akun ?</string>
+  <string name="register_now">Daftar sekarang</string>
+  <string name="silk">SILK. all right reserved.</string>
+  <string name="first_name">Nama Depan</string>
+  <string name="last_name">Nama Belakang</string>
+  <string name="id_card">No. KTP</string>
+  <string name="phone_number">No. Telpon</string>
+  <string name="confirm_password">Konfirmasi Password</string>
+  <string name="login_now">Login sekarang</string>
+  <string name="login">Login</string>
+  <string name="register">Register</string>
+  <string name="input_id_card">Masukkan No. KTP anda</string>
+  <string name="input_phone_number">Masukkan No. Telpon</string>
+  <string name="input_first_name">Masukkan Nama Depan</string>
+  <string name="input_last_name">Masukkan Nama Belakang</string>
+  <string name="input_password_confirm">Konfirmasi password anda</string>
+  <string name="solution_your_health">Solusi, Kesehatan Anda</string>
+  <string name="health_info">Update informasi seputar kesehatan\nsemua bisa disini !</string>
+  <string name="more">Selengkapnya</string>
+  <string name="special_service">Layanan Khusus</string>
+  <string name="test_covid_wording">Tes Covid 19, Cegah Corona Sedini Mungkin</string>
+  <string name="take_test">Daftar Tes</string>
+  <string name="inspection_track">Track Pemeriksaan</string>
+  <string name="check_inspection_track">Kamu dapat mengecek progress pemeriksaanmu disini</string>
+  <string name="track">Track</string>
+  <string name="search">Search</string>
+  <string name="select_your_health">Pilih Tipe Layanan Kesehatan Anda</string>
+</resources>

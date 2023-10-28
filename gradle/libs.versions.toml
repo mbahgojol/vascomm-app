@@ -29,6 +29,15 @@ versionCode = "1"
 versionName = "1.0"
 org-jetbrains-kotlin-jvm = "1.9.0"
 mokoVersion = "0.16.1"
+resourcesVersion = "0.23.0"
+core-ktx = "1.12.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+material = "1.10.0"
+androidxNavigation = "2.7.4"
+coil = "2.4.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -47,6 +56,7 @@ firebase-crashlytics = "com.google.firebase.crashlytics:2.9.9"
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+multiplatform-resources = "dev.icerock.mobile.multiplatform-resources:0.23.0"
 
 [libraries]
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin-android" }
@@ -57,17 +67,25 @@ koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin-android" 
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-ksp-version" }
 koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-ksp-version" }
 
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "resourcesVersion" }
+moko-resources-compose = "dev.icerock.moko:resources-compose:0.23.0"
+mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mokoVersion" }
+mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoVersion" }
+mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mokoVersion" }
+mvvm-flow-compose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mokoVersion" }
+
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigation" }
+androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "androidxNavigation" }
+androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "androidxNavigation" }
+
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
 androidx-activity-activity = { module = "androidx.activity:activity", version.ref = "androidxactivity" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxactivity" }
 androidx-browser = "androidx.browser:browser:1.6.0"
 androidx-collection = "androidx.collection:collection:1.3.0"
 androidx-core = "androidx.core:core-ktx:1.12.0"
 androidx-splashscreen = "androidx.core:core-splashscreen:1.0.1"
-
-mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mokoVersion" }
-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoVersion" }
-mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mokoVersion" }
-mvvm-flow-compose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mokoVersion" }
 
 paging-common = { module = "app.cash.paging:paging-common", version.ref = "paging-multiplatform" }
 paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging-multiplatform" }
@@ -163,3 +181,11 @@ kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", ve
 spotless-gradlePlugin = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
 compose-gradlePlugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
 licensee-gradlePlugin = { module = "app.cash.licensee:licensee-gradle-plugin", version.ref = "licensee" }
+
+resourcesGradlePlugin = { module = "dev.icerock.moko:resources-generator", version.ref = "resourcesVersion" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit-junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }

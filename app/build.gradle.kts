@@ -4,6 +4,7 @@ plugins {
   id("mbahgojol.application")
   id("mbahgojol.kotlin.android")
   id("mbahgojol.library.compose")
+  alias(libs.plugins.ksp)
 }
 
 val useReleaseKeystore = rootProject.file("release/app-release.jks").exists()
@@ -82,35 +83,35 @@ android {
       versionCode = (android.defaultConfig.versionCode ?: 0) + 1
     }
   }
-
-  applicationVariants.all {
-    val variantName = name
-    sourceSets {
-      getByName("main") {
-        java.srcDir(File("build/generated/ksp/$variantName/kotlin"))
-      }
-    }
-  }
 }
 
 dependencies {
-  qaImplementation(projects.shared)
-  standardImplementation(projects.shared)
+  implementation(projects.features.account)
+  implementation(projects.features.auth)
+  implementation(projects.features.dashboard)
+
+  implementation(projects.core.base)
+  implementation(projects.core.navigation)
+  implementation(projects.core.designsystem)
 
   implementation(libs.koin.android)
   implementation(libs.koin.androidx.compose)
   implementation(libs.koin.annotations)
-
-  implementation(compose.foundation)
-  implementation(compose.material)
-  implementation(compose.material3)
+  ksp(libs.koin.compiler)
 
   implementation(libs.kotlin.coroutines.android)
   implementation(libs.androidx.activity.activity)
-  implementation(libs.androidx.activity.compose)
 
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.test.junit)
+}
+
+ksp {
+  arg("KOIN_CONFIG_CHECK","true")
+}
+
+ksp {
+  arg("KOIN_DEFAULT_MODULE","false")
 }
 
 
