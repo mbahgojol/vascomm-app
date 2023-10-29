@@ -27,7 +27,7 @@ import com.mbahgojol.auth.navigation.OnBackClick
 import com.mbahgojol.auth.register.widgets.SignInLinkButton
 import com.mbahgojol.auth.widgets.AppPasswordTextField
 import com.mbahgojol.designsystem.widgets.AppTextField
-import com.mbahgojol.base.navigator.LocalNavigator
+import com.mbahgojol.navigation.LocalNavigator
 import com.mbahgojol.designsystem.utils.appTypography
 import com.mbahgojol.designsystem.widgets.AppButtonWithIcon
 import com.mbahgojol.designsystem.widgets.AppSpacer

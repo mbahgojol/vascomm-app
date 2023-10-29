@@ -1,4 +1,4 @@
-package com.mbahgojol.base.navigator
+package com.mbahgojol.navigation
 
 interface Screen
 

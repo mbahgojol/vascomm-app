@@ -53,6 +53,7 @@ fun AppTextField(
   label: String,
   initialValue: String = "",
   elevation: Dp = 50.dp,
+  onValueChange: (String) -> Unit = {},
 ) {
   var value by stateOf(value = initialValue)
   val focusManager = LocalFocusManager.current
@@ -92,6 +93,7 @@ fun AppTextField(
           value,
           onValueChange = {
             value = it
+            onValueChange(value)
           },
           enabled = enable,
           readOnly = readOnly,

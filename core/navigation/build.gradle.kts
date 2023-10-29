@@ -1,6 +1,7 @@
 plugins {
   id("mbahgojol.library")
   id("mbahgojol.kotlin.android")
+  id("mbahgojol.library.compose")
 }
 
 android {
@@ -8,5 +9,8 @@ android {
 }
 
 dependencies {
-  implementation(projects.core.base)
+  api(libs.androidx.navigation.compose)
+  api(libs.androidx.navigation.runtime)
+  api(libs.androidx.core)
+  implementation(projects.core.designsystem)
 }

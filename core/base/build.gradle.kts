@@ -1,7 +1,7 @@
 plugins {
   id("mbahgojol.library")
   id("mbahgojol.kotlin.android")
-  id("mbahgojol.library.compose")
+  alias(libs.plugins.ksp)
 }
 
 android {
@@ -9,8 +9,9 @@ android {
 }
 
 dependencies {
-  api(libs.androidx.navigation.compose)
-  api(libs.androidx.navigation.runtime)
-  api(libs.androidx.core)
-  implementation(projects.core.designsystem)
+  implementation(libs.timber)
+  implementation(libs.koin.android)
+  implementation(libs.koin.androidx.compose)
+  implementation(libs.koin.annotations)
+  ksp(libs.koin.compiler)
 }

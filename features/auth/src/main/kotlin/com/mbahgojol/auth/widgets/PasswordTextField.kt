@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import com.mbahgojol.designsystem.utils.appTypography
 import com.mbahgojol.designsystem.utils.stateOf
 import com.mbahgojol.resources.R
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -49,12 +50,13 @@ fun PasswordTextField(
   interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
   isError: Boolean = false,
   placeholder: String = "",
+  onValueChange: (String) -> Unit = {},
+  bringIntoViewRequester: BringIntoViewRequester = remember { BringIntoViewRequester() },
+  coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ) {
   var value by stateOf("")
   var showPassword by stateOf(false)
   val focusManager = LocalFocusManager.current
-  val bringIntoViewRequester = remember { BringIntoViewRequester() }
-  val coroutineScope = rememberCoroutineScope()
 
   Card(
     modifier.fillMaxWidth().wrapContentHeight(),
@@ -85,6 +87,7 @@ fun PasswordTextField(
           onValueChange = {
             if (it.length >= 16) return@BasicTextField
             value = it
+            onValueChange(value)
           },
           enabled = true,
           readOnly = false,

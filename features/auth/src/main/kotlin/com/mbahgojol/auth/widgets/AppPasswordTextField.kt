@@ -1,10 +1,14 @@
 package com.mbahgojol.auth.widgets
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,12 +23,16 @@ import com.mbahgojol.designsystem.utils.appTypography
 import com.mbahgojol.designsystem.widgets.AppSpacer
 import com.mbahgojol.resources.R
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AppPasswordTextField(
   label: String = stringResource(R.string.password),
   onClickForgotPassword: OnClickUnit? = null,
+  onValueChange: (String) -> Unit = {},
 ) {
-  Column {
+  Column(
+    Modifier.statusBarsPadding().navigationBarsPadding().imePadding()
+  ) {
     Row(
       modifier = Modifier.fillMaxWidth(),
       horizontalArrangement = Arrangement.SpaceBetween,
@@ -34,18 +42,18 @@ fun AppPasswordTextField(
           fontWeight = FontWeight.W600, color = appColorScheme.primary, fontFamily = GilroyFamily
         ), modifier = Modifier.padding(horizontal = 16.dp)
       )
-      if (onClickForgotPassword != null)
-        Text(
-          stringResource(R.string.forgot_password), style = appTypography.labelMedium.copy(
-            fontWeight = FontWeight.W600,
-            lineHeight = 18.sp,
-          ), modifier = Modifier.padding(horizontal = 16.dp)
-        )
+      if (onClickForgotPassword != null) Text(
+        stringResource(R.string.forgot_password), style = appTypography.labelMedium.copy(
+          fontWeight = FontWeight.W600,
+          lineHeight = 18.sp,
+        ), modifier = Modifier.padding(horizontal = 16.dp)
+      )
     }
     AppSpacer(height = 16.dp)
     PasswordTextField(
       modifier = Modifier.padding(horizontal = 16.dp),
       placeholder = stringResource(R.string.input_password),
+      onValueChange = onValueChange
     )
   }
 }

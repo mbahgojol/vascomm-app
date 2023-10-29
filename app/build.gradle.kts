@@ -92,6 +92,9 @@ dependencies {
   implementation(projects.core.base)
   implementation(projects.core.navigation)
   implementation(projects.core.designsystem)
+  implementation(projects.domain)
+  implementation(projects.data.network)
+  implementation(projects.data.authentication)
 
   implementation(libs.koin.android)
   implementation(libs.koin.androidx.compose)
@@ -100,6 +103,7 @@ dependencies {
 
   implementation(libs.kotlin.coroutines.android)
   implementation(libs.androidx.activity.activity)
+  implementation(libs.timber)
 
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.test.junit)

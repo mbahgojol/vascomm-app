@@ -5,7 +5,11 @@ plugins {
 }
 
 android {
-  namespace = "com.mbahgojol.authentication"
+  namespace = "com.mbahgojol.network"
+
+  buildFeatures {
+    buildConfig = true
+  }
 }
 
 dependencies {
@@ -19,5 +23,10 @@ dependencies {
   implementation(libs.ktor.client.auth)
   implementation(libs.ktor.client.cio)
 
-  implementation(projects.data.network)
+  implementation(projects.core.base)
+
+  implementation(libs.okhttp.loggingInterceptor)
+  implementation(libs.chucker.library)
+  implementation(libs.gson)
+  implementation(libs.timber)
 }
