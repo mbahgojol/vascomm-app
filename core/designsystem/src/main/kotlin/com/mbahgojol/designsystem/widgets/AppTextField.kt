@@ -1,4 +1,4 @@
-package com.mbahgojol.auth.widgets
+package com.mbahgojol.designsystem.widgets
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -31,13 +31,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mbahgojol.designsystem.GilroyFamily
 import com.mbahgojol.designsystem.utils.appColorScheme
 import com.mbahgojol.designsystem.utils.appTypography
 import com.mbahgojol.designsystem.utils.stateOf
-import com.mbahgojol.designsystem.widgets.AppSpacer
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -47,10 +47,14 @@ fun AppTextField(
   visualTransformation: VisualTransformation = VisualTransformation.None,
   interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
   isError: Boolean = false,
+  enable: Boolean = true,
+  readOnly: Boolean = false,
   placeholder: String,
   label: String,
+  initialValue: String = "",
+  elevation: Dp = 50.dp,
 ) {
-  var value by stateOf("")
+  var value by stateOf(value = initialValue)
   val focusManager = LocalFocusManager.current
   val bringIntoViewRequester = remember { BringIntoViewRequester() }
   val coroutineScope = rememberCoroutineScope()
@@ -67,7 +71,7 @@ fun AppTextField(
       Modifier.fillMaxWidth().wrapContentHeight(),
       shape = RoundedCornerShape(8.dp),
       colors = CardDefaults.elevatedCardColors(containerColor = Color.White),
-      elevation = CardDefaults.cardElevation(defaultElevation = 50.dp),
+      elevation = CardDefaults.cardElevation(defaultElevation = elevation),
     ) {
       Box(
         Modifier.fillMaxWidth().padding(
@@ -89,8 +93,8 @@ fun AppTextField(
           onValueChange = {
             value = it
           },
-          enabled = true,
-          readOnly = false,
+          enabled = enable,
+          readOnly = readOnly,
           visualTransformation = visualTransformation,
           keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
           keyboardOptions = KeyboardOptions.Default.copy(
@@ -98,8 +102,7 @@ fun AppTextField(
           ),
           singleLine = true,
           interactionSource = interactionSource,
-          modifier = Modifier.fillMaxSize()
-            .bringIntoViewRequester(bringIntoViewRequester)
+          modifier = Modifier.fillMaxSize().bringIntoViewRequester(bringIntoViewRequester)
             .onFocusEvent { focusState ->
               if (focusState.isFocused) {
                 coroutineScope.launch {

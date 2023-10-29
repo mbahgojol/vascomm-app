@@ -1,4 +1,4 @@
-package com.mbahgojol.dashboard.home.widgets
+package com.mbahgojol.designsystem.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

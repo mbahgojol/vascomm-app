@@ -11,6 +11,7 @@ val Primary = Color(0xFF002060)
 val OnPrimary = Color(0xFF1D334F)
 
 val GreyText = Color(0xFF597393)
+val GreyN30 = Color(0xFFEBEDF7)
 val Scarlet = Color(0xFFF32013)
 val GreenDark = Color(0xFF007025)
 val GreenLight = Color(0xFFB3FFCB)

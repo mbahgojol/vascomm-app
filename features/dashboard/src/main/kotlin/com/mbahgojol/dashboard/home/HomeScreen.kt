@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mbahgojol.dashboard.home.widgets.AppTopBar
 import com.mbahgojol.dashboard.home.widgets.InfoHealthCard
-import com.mbahgojol.dashboard.home.widgets.InfoNotifCard
+import com.mbahgojol.designsystem.widgets.InfoNotifCard
 import com.mbahgojol.dashboard.home.widgets.InspectionTrackCard
 import com.mbahgojol.dashboard.home.widgets.ListProductCard
 import com.mbahgojol.dashboard.home.widgets.ListTypeHealthService

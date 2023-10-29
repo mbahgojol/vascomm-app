@@ -43,4 +43,12 @@
   <string name="get_notification">Dapatkan\nnotifikasi</string>
   <string name="unit_service">Satuan</string>
   <string name="inspection_package">Paket Pemeriksaan</string>
+  <string name="my_profile">Profile Saya</string>
+  <string name="setting">Pengaturan</string>
+  <string name="complete_your_profile_wording">Lengkapi profile anda untuk memaksimalkan\npenggunaan aplikasi</string>
+  <string name="choose_your_data">Pilih data yang ingin ditampilkan</string>
+  <string name="personal_data">Data Diri</string>
+  <string name="personal_data_matches_ktp">Data diri anda sesuai KTP</string>
+  <string name="make_sure_profile_filled_correctly">Pastikan profile anda terisi dengan benar,\ndata pribadi anda terjamin keamanannya</string>
+  <string name="save_profile">Simpan Profile</string>
 </resources>

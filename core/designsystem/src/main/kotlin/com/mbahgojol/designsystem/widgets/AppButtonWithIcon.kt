@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,6 +31,7 @@ fun AppButtonWithIcon(
   onClick: () -> Unit,
   text: String,
   backgroundColor: Color = MaterialTheme.colorScheme.primary,
+  painter: Painter = painterResource(R.drawable.ic_arrow_right),
 ) {
   Box(
     modifier
@@ -56,7 +58,7 @@ fun AppButtonWithIcon(
       ),
     )
     Icon(
-      painterResource(R.drawable.ic_arrow_right),
+      painter,
       null,
       modifier = Modifier.align(Alignment.CenterEnd)
         .padding(horizontal = 20.dp),
