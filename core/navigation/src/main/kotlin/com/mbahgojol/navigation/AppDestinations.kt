@@ -6,4 +6,5 @@ sealed class AppDestinations {
   object LoginScreen : AppScreen("loginScreen")
   object HomeScreen : AppScreen("homeScreen")
   object RegisterScreen : AppScreen("registerScreen")
+  object ProfileScreen : AppScreen("profileScreen")
 }

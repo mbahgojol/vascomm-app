@@ -22,14 +22,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mbahgojol.auth.login.widgets.SignUpLinkButton
 import com.mbahgojol.auth.navigation.OnBackClick
 import com.mbahgojol.auth.widgets.AppPasswordTextField
 import com.mbahgojol.auth.widgets.AppTextField
-import com.mbahgojol.auth.login.widgets.SignUpLinkButton
 import com.mbahgojol.base.navigator.LocalNavigator
 import com.mbahgojol.base.navigator.goTo
 import com.mbahgojol.designsystem.utils.appTypography
-import com.mbahgojol.designsystem.widgets.AppButton
+import com.mbahgojol.designsystem.widgets.AppButtonWithIcon
 import com.mbahgojol.designsystem.widgets.AppSpacer
 import com.mbahgojol.designsystem.widgets.BoldTextAtEnd
 import com.mbahgojol.navigation.AppDestinations
@@ -100,7 +100,7 @@ private fun LoginUi(
 
     })
     AppSpacer(height = 40.dp)
-    AppButton(
+    AppButtonWithIcon(
       modifier = Modifier.fillMaxWidth().height(48.dp).padding(horizontal = 16.dp),
       onClick = {
         navigator.goTo(AppDestinations.HomeScreen)

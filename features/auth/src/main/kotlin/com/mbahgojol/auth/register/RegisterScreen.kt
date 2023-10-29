@@ -24,12 +24,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mbahgojol.auth.navigation.OnBackClick
+import com.mbahgojol.auth.register.widgets.SignInLinkButton
 import com.mbahgojol.auth.widgets.AppPasswordTextField
 import com.mbahgojol.auth.widgets.AppTextField
-import com.mbahgojol.auth.register.widgets.SignInLinkButton
 import com.mbahgojol.base.navigator.LocalNavigator
 import com.mbahgojol.designsystem.utils.appTypography
-import com.mbahgojol.designsystem.widgets.AppButton
+import com.mbahgojol.designsystem.widgets.AppButtonWithIcon
 import com.mbahgojol.designsystem.widgets.AppSpacer
 import com.mbahgojol.designsystem.widgets.BoldTextAtEnd
 import com.mbahgojol.resources.R
@@ -123,7 +123,7 @@ private fun RegisterUi(
     AppSpacer(height = 40.dp)
     AppPasswordTextField(label = stringResource(R.string.confirm_password))
     AppSpacer(height = 40.dp)
-    AppButton(
+    AppButtonWithIcon(
       modifier = Modifier.fillMaxWidth().height(48.dp).padding(horizontal = 16.dp),
       onClick = {},
       text = stringResource(R.string.register),

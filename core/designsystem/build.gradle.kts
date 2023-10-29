@@ -14,6 +14,7 @@ dependencies {
   api(compose.material3)
   api(compose.animation)
   api(libs.androidx.activity.compose)
+  api(libs.constraintlayout.compose)
 
   implementation(projects.common.resources)
 }
