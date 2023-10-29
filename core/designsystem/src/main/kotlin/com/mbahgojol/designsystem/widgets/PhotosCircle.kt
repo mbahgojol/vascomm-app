@@ -1,4 +1,4 @@
-package com.mbahgojol.account.profile.widgets
+package com.mbahgojol.designsystem.widgets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

@@ -1,4 +1,4 @@
-package com.mbahgojol.account.profile
+package com.mbahgojol.dashboard.profile
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,10 +24,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mbahgojol.account.navigation.OnBackClick
-import com.mbahgojol.account.profile.widgets.AccountTab
-import com.mbahgojol.account.profile.widgets.ChoosePersonalDataCard
-import com.mbahgojol.account.profile.widgets.MemberCard
+import com.mbahgojol.dashboard.navigation.OnBackClick
+import com.mbahgojol.dashboard.profile.widgets.AccountTab
+import com.mbahgojol.dashboard.profile.widgets.ChoosePersonalDataCard
+import com.mbahgojol.dashboard.profile.widgets.MemberCard
 import com.mbahgojol.designsystem.utils.appColorScheme
 import com.mbahgojol.designsystem.utils.appTypography
 import com.mbahgojol.designsystem.widgets.AppButtonWithIcon

@@ -10,11 +10,11 @@ typealias OnBackClick = () -> Unit
 typealias OnClickUnit = () -> Unit
 
 fun NavGraphBuilder.authNavigation() {
-  composable(AppDestinations.LoginScreen.name) {
+  composable(AppDestinations.Login.name) {
     LoginScreen()
   }
 
-  composable(AppDestinations.RegisterScreen.name) {
+  composable(AppDestinations.Register.name) {
     RegisterScreen()
   }
 }

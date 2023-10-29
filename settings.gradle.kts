@@ -40,7 +40,6 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 rootProject.name = "vascomm-app"
 include(":app")
-include(":features:account")
 include(":features:auth")
 include(":features:dashboard")
 include(":domain")

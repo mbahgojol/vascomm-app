@@ -17,11 +17,11 @@ import com.mbahgojol.resources.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppTopBar() {
+fun AppTopBar(onClickNavigationIcon: () -> Unit) {
   TopAppBar(
     navigationIcon = {
       IconButton(
-        onClick = {},
+        onClick = onClickNavigationIcon,
       ) {
         Icon(
           painterResource(R.drawable.ic_menu), null,

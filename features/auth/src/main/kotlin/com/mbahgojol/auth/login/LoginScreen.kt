@@ -25,12 +25,12 @@ import androidx.compose.ui.unit.sp
 import com.mbahgojol.auth.login.widgets.SignUpLinkButton
 import com.mbahgojol.auth.navigation.OnBackClick
 import com.mbahgojol.auth.widgets.AppPasswordTextField
-import com.mbahgojol.designsystem.widgets.AppTextField
 import com.mbahgojol.base.navigator.LocalNavigator
 import com.mbahgojol.base.navigator.goTo
 import com.mbahgojol.designsystem.utils.appTypography
 import com.mbahgojol.designsystem.widgets.AppButtonWithIcon
 import com.mbahgojol.designsystem.widgets.AppSpacer
+import com.mbahgojol.designsystem.widgets.AppTextField
 import com.mbahgojol.designsystem.widgets.BoldTextAtEnd
 import com.mbahgojol.navigation.AppDestinations
 import com.mbahgojol.resources.R
@@ -103,13 +103,13 @@ private fun LoginUi(
     AppButtonWithIcon(
       modifier = Modifier.fillMaxWidth().height(48.dp).padding(horizontal = 16.dp),
       onClick = {
-        navigator.goTo(AppDestinations.HomeScreen)
+        navigator.goTo(AppDestinations.Dashboard)
       },
       text = stringResource(R.string.login),
     )
     AppSpacer(height = 30.dp)
     SignUpLinkButton(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-      navigator.goTo(AppDestinations.RegisterScreen)
+      navigator.goTo(AppDestinations.Register)
     }
   }
 }

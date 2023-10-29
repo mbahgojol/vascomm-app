@@ -86,7 +86,6 @@ android {
 }
 
 dependencies {
-  implementation(projects.features.account)
   implementation(projects.features.auth)
   implementation(projects.features.dashboard)
 

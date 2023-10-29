@@ -17,6 +17,7 @@ val GreenDark = Color(0xFF007025)
 val GreenLight = Color(0xFFB3FFCB)
 val Orange = Color(0xFFFF7200)
 val Secondary = Color(0xFF00D9D5)
+val Red = Color(0xFFEB0004)
 
 val defaultTextFieldColors: TextFieldColors
   @Composable get() = TextFieldDefaults.colors(

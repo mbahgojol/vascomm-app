@@ -1,4 +1,4 @@
-package com.mbahgojol.account.profile.widgets
+package com.mbahgojol.dashboard.profile.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
